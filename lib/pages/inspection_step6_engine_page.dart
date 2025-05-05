@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InspectionStep6EnginePage extends StatefulWidget {
-  const InspectionStep6EnginePage({Key? key}) : super(key: key);
+  const InspectionStep6EnginePage({super.key});
 
   @override
   State<InspectionStep6EnginePage> createState() =>
@@ -71,7 +71,7 @@ class _InspectionStep6EnginePageState extends State<InspectionStep6EnginePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("5/9 Penilaian")),
+      appBar: AppBar(title: const Text("5/12")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -131,14 +131,18 @@ class _InspectionStep6EnginePageState extends State<InspectionStep6EnginePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
                   ),
                   child: const Text("Back"),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/step12_photo');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
                   ),
