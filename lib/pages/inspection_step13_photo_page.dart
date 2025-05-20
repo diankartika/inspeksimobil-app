@@ -6,9 +6,9 @@ class InspectionStep13PhotoPage extends StatefulWidget {
   const InspectionStep13PhotoPage({super.key});
 
   @override
-  State<InspectionStep13PhotoPage> createState() => _InspectionStep13PhotoPageState();
+  State<InspectionStep13PhotoPage> createState() =>
+      _InspectionStep13PhotoPageState();
 }
-
 
 class _InspectionStep13PhotoPageState extends State<InspectionStep13PhotoPage> {
   File? _image;
@@ -44,25 +44,33 @@ class _InspectionStep13PhotoPageState extends State<InspectionStep13PhotoPage> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
-                image: _image != null
-                    ? DecorationImage(image: FileImage(_image!), fit: BoxFit.cover)
-                    : null,
+                image:
+                    _image != null
+                        ? DecorationImage(
+                          image: FileImage(_image!),
+                          fit: BoxFit.cover,
+                        )
+                        : null,
               ),
-              child: _image == null
-                  ? Center(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        decoration: BoxDecoration(
-                          color: Colors.lightBlue,
-                          borderRadius: BorderRadius.circular(8),
+              child:
+                  _image == null
+                      ? Center(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.lightBlue,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Text(
+                            'Upload Foto',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ),
-                        child: const Text(
-                          'Upload Foto',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ),
-                    )
-                  : null,
+                      )
+                      : null,
             ),
           ),
           const SizedBox(height: 12),
@@ -137,10 +145,7 @@ class _InspectionStep13PhotoPageState extends State<InspectionStep13PhotoPage> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Tambahan",
-                  style: TextStyle(fontSize: 18),
-                ),
+                child: Text("Tambahan", style: TextStyle(fontSize: 18)),
               ),
               const SizedBox(height: 20),
               _buildUploadBox(),
@@ -152,7 +157,9 @@ class _InspectionStep13PhotoPageState extends State<InspectionStep13PhotoPage> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () => Navigator.pop(context),
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                      ),
                       child: const Text("Back"),
                     ),
                   ),
@@ -160,11 +167,11 @@ class _InspectionStep13PhotoPageState extends State<InspectionStep13PhotoPage> {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Next ditekan!")),
-                        );
+                        Navigator.pushNamed(context, '/step14_photo');
                       },
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                      ),
                       child: const Text("Next"),
                     ),
                   ),
